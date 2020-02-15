@@ -158,15 +158,18 @@ cover: '/assets/pic/bg/post-bg-universe.jpg'
     
 - 安装[H20主题](https://github.com/kaeyleo/jekyll-theme-H2O)， [参考样例](https://jingwei.link/)
 
-  ```shell
-# 新安装其实就是克隆这个主题，解压覆盖本地仓库即可
+  ```shell  
+  # 新安装其实就是克隆这个主题，解压覆盖本地仓库即可
   
-# 更换图片、文字，主要配置是_config.yml
+  # 更换图片、文字，主要配置是_config.yml
   
-# 文章发布到post文件夹，jekyll serve如果开着会动态编译，除了全局配置
+  # 文章发布到post文件夹，jekyll serve如果开着会动态编译，除了全局配置
   ```
 
+
+  ```
   
+  ```
 
 - jekyll的目录结构**
 
@@ -194,7 +197,12 @@ cover: '/assets/pic/bg/post-bg-universe.jpg'
 
 #### 	2.5 本地端：Jekyll点评及其他插件
 
+config文件开启comments，注册个人disqus账号，新建站点即可
+
 #### 	2.6 本地端：Typora编写及Git发布、同步
+
+- [下载](https://typora.io/)安装
+- 发布、同步尽量用git gui 省去记忆命令
 
 ### 3、新电脑搭建（更换电脑、多地办公之用）
 
@@ -212,6 +220,12 @@ cover: '/assets/pic/bg/post-bg-universe.jpg'
   - 每个月100GB流量带宽。
   - 每小时编译构建次数不超过10次。（在线修改重新编译并未发现这个限制）
   - 更多参看官方说明：[usage-limits](https://help.github.com/en/github/working-with-github-pages/about-github-pages#usage-limits)。
+  
+- 补充一个Youtube激励视频，做测试
+
+<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/R0C_uHXiH10" frameborder="0"></iframe>
+
+  
 
 ### 附：参考材料
 
@@ -219,3 +233,7 @@ cover: '/assets/pic/bg/post-bg-universe.jpg'
 - [2 快速在 Windows 上搭建 Jekyll 开发环境](https://blog.walterlv.com/post/setup-jekyll-in-windows.html)
 - [3 Git可视化极简易教程 — Git GUI使用方法](https://www.runoob.com/w3cnote/git-gui-window.html)
 
+
+  ```
+
+  ```

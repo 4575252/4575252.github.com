@@ -1,0 +1,288 @@
+I"�/<blockquote>
+  <p>新冠病毒肆虐期间，在家闲的那个蛋疼，也不知道未来和意外那个先来，想想还有好多梦想没有去追索，先从这里开始，<strong>一起努力吧</strong>！</p>
+</blockquote>
+
+<h2 id="一目标">一、目标</h2>
+
+<ol>
+  <li>建设个人博客一套，为下一步梦想推进，暂定GitHub+Jekyll的方式；</li>
+  <li>将各领域的知识汇总、提炼，发布到博客上；</li>
+  <li>补充汇总知识盲区；</li>
+</ol>
+
+<h2 id="二安装过程">二、安装过程</h2>
+
+<h3 id="1准备工具">1、准备工具</h3>
+
+<ul>
+  <li>源码管理工具：Git Bash, Git Gui</li>
+  <li>源码仓库&amp;空间商&amp;顶级域名：GitHub 注册、开启[owner].github.io仓库并配置个人域名</li>
+  <li>本地开发及远端运行环境：Ruby、Bundle及国内加速源，windows，支撑jekyll</li>
+  <li>博客中间件：Jekyll、Jekyll Page、H2O主题，动态渲染</li>
+  <li>博文编写：Typora，markdown</li>
+</ul>
+
+<h3 id="2首次搭建过程一次性">2、首次搭建过程（一次性）</h3>
+
+<h4 id="21-服务端github注册开启所有者仓库配置个人域名">2.1 服务端：GitHub注册、开启【所有者】仓库、配置个人域名</h4>
+
+<ul>
+  <li>
+    <p>GitHub注册参考<strong>附录一</strong>即可，新开仓库必须要用<strong>owner</strong>.github.io 这个名称(注：owner就是个人github账户)</p>
+  </li>
+  <li>
+    <p>仓库开启后，在setting-&gt;GitHub Pages，配置源码分支为master，定义域名为个人域名，此时会在code界面看到一个自动生成的cname， 另https一般要等一两个小时才可开启</p>
+  </li>
+  <li>
+    <p>域名解析（IP第三段可以是108，109，110，通过ping可以得知）</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">主机记录</th>
+          <th>记录类型</th>
+          <th>记录值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">www</td>
+          <td>CNAME</td>
+          <td>owner.github.io</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">@</td>
+          <td>A</td>
+          <td>185.199.109.153</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>用站长网的超级 ping.chinaz.com，感觉可以加速国内节点的解析</p>
+  </li>
+  <li>
+    <p>测试可简单放个index.html</p>
+  </li>
+</ul>
+
+<h4 id="22-本地端git下载安装及配置github联调">2.2 本地端：Git下载安装及配置、GitHub联调</h4>
+
+<ul>
+  <li>
+    <p>建议捋顺后，尽量用Git Gui简化工作，具体可参考附录3</p>
+  </li>
+  <li>
+    <p>Git Bash和Git Gui <a href="https://git-scm.com/downloads">官网下载</a>， 安装不建议默认<strong>program files</strong> 路径，有空格，容易出诡异的事</p>
+  </li>
+  <li>
+    <p>打开Git Bash 配置Git用户名及本地邮箱</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"lzh.home.desktop"</span> //可以随意输入，以后提交的分支都会有这个身份
+git config <span class="nt">--global</span> user.email <span class="s2">"4575252@gmail.com"</span> // 输入有效邮箱
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>打开Git Bash 生成密钥对</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-C</span> <span class="s2">"your@email.com"</span> （引号里填你上面设置的邮箱），然后一直回车就好
+</code></pre></div>    </div>
+
+    <p>出现RSA 2048，代表成功</p>
+  </li>
+  <li>
+    <p>将用户目录下的.ssh目录中的pub公钥文件用文本编辑器打开，添加到github或其他源码托管工具个人设置页的ssh选项中</p>
+  </li>
+  <li>
+    <p>测试密钥对是否有效</p>
+
+    <pre><code class="language-SHELL">ssh -T git@github.com
+</code></pre>
+
+    <p>回车后出现：You’ve successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。</p>
+  </li>
+  <li>
+    <p>将GitHub上的仓库和本地仓库进行关联</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"# blog"</span>  <span class="o">&gt;&gt;</span> README.md
+<span class="c"># 初始化git项目</span>
+git init
+<span class="c"># 把所有文件加入版本管理</span>
+git add README.md
+<span class="c"># 提交到本地仓库</span>
+git commit <span class="nt">-m</span> <span class="s2">"初始化项目"</span>
+<span class="c"># 添加远程仓库，git@github.com:yiifaa/yii-webapp-docker.git为远程仓库地址</span>
+git remote add origin git@github.com:owner/owner.github.io.git
+<span class="c"># 推送到远程仓库</span>
+git push <span class="nt">-u</span> origin master
+</code></pre></div>    </div>
+
+    <p>提交成功后，用git gui进行，remote-》fetch， Meger-》local的下拉合并操作，验证上下行都OK；如果同步有冲突，勾选 force</p>
+  </li>
+</ul>
+
+<h4 id="23-本地端windows环境ruby安装国内加速源">2.3 本地端：Windows环境Ruby安装、国内加速源</h4>
+
+<ul>
+  <li>
+    <p>参考附录1</p>
+  </li>
+  <li>
+    <p>先安装msy2和ruby的离线安装包， <a href="https://rubygems.org/pages/download">rubyGem离线包</a></p>
+  </li>
+  <li>
+    <p>配置国内<a href="https://gems.ruby-china.com/">加速源</a></p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看当前版本，并更新</span>
+<span class="nv">$ </span>gem update <span class="nt">--system</span> <span class="c"># 这里请翻墙一下</span>
+<span class="nv">$ </span>gem <span class="nt">-v</span>
+2.6.3
+  
+<span class="c"># 切换国内源</span>
+<span class="nv">$ </span>gem sources <span class="nt">--add</span> https://gems.ruby-china.com/ <span class="nt">--remove</span> https://rubygems.org/
+<span class="nv">$ </span>gem sources <span class="nt">-l</span>
+https://gems.ruby-china.com
+<span class="c"># 确保只有 gems.ruby-china.com</span>
+  
+  
+<span class="c">#Bundler 的 Gem 源代码镜像命令。</span>
+<span class="nv">$ </span>bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+  
+<span class="c">#ruby离线安装时连带安装Msy2的MINGW和 dev toolchain，如果失败，可任起一个cmd执行以下命令重新执行</span>
+<span class="c"># 全局命令：安装 Ruby 所需的依赖，选3</span>
+ridk <span class="nb">install</span>
+  
+  
+<span class="c"># 安装rubyGem</span>
+<span class="nv">$ </span><span class="nb">cd</span> <span class="o">{</span>unzip-path<span class="o">}</span> // unzip-path表示解压的路径
+<span class="nv">$ </span>ruby setup.rb
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="24-本地端jekyll安装调试主题下载及个人定制">2.4 本地端：Jekyll安装调试，主题下载及个人定制</h4>
+
+<ul>
+  <li>
+    <h4 id="安装jekylljekyll-paginate验证">安装Jekyll，jekyll-paginate，验证</h4>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll bundler jekyll-paginate
+bundle <span class="nb">install
+</span>jekyll <span class="nt">-v</span>
+    
+<span class="c"># 新建一个blog测试</span>
+jekyll new myBlog
+<span class="nb">cd </span>myBlog
+jekyll serve
+    
+<span class="c"># 如果4000端口被占用，可以修改端口</span>
+jekyll serve <span class="nt">-P</span> 5555
+</code></pre></div>    </div>
+
+    <p>在浏览器里输入： <a href="http://localhost:4000/">http://localhost:4000</a>，就可以看到你的博客效果了。</p>
+  </li>
+  <li>
+    <p>安装<a href="https://github.com/kaeyleo/jekyll-theme-H2O">H20主题</a>， <a href="https://jingwei.link/">参考样例</a></p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 新安装其实就是克隆这个主题，解压覆盖本地仓库即可</span>
+  
+<span class="c"># 更换图片、文字，主要配置是_config.yml</span>
+  
+<span class="c"># 文章发布到post文件夹，jekyll serve如果开着会动态编译，除了全局配置</span>
+</code></pre></div>    </div>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>jekyll的目录结构**</p>
+
+    <p>我们只需要关注几个核心的目录结构如下（可以自己创建）：</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">_layouts</code> （存放页面模板，md或html文件的内容会填充模板）</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">_sass</code>（存放样式表）</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">_includes</code> （可以复用在其它页面被include的html页面）</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">_posts</code>（博客文章页面）</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">assets</code>（原生的资源文件）</p>
+      </li>
+      <li>
+        <ul>
+          <li><code class="highlighter-rouge">js</code></li>
+          <li><code class="highlighter-rouge">css</code></li>
+          <li><code class="highlighter-rouge">image</code></li>
+        </ul>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">_config.yml</code> （全局配置文件）</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">index.html, index.md, README.md</code> （首页index.html优先级最高，如果没有index，默认启用README.md文件）</p>
+      </li>
+      <li><code class="highlighter-rouge">自定义文件和目录</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="25-本地端jekyll点评及其他插件">2.5 本地端：Jekyll点评及其他插件</h4>
+
+<p>config文件开启comments，注册个人disqus账号，新建站点即可</p>
+
+<h4 id="26-本地端typora编写及git发布同步">2.6 本地端：Typora编写及Git发布、同步</h4>
+
+<ul>
+  <li><a href="https://typora.io/">下载</a>安装</li>
+  <li>发布、同步尽量用git gui 省去记忆命令</li>
+</ul>
+
+<h3 id="3新电脑搭建更换电脑多地办公之用">3、新电脑搭建（更换电脑、多地办公之用）</h3>
+
+<p>执行第2.2 - 2.6即可；</p>
+
+<h2 id="三补充">三、补充</h2>
+
+<ul>
+  <li>
+    <p><strong>CDN加速</strong> 配置不难，原先域名解析 A-&gt;B,变成 A-&gt;C-&gt;B，不过被DDOS，流量费惊人，暂时先搁置</p>
+  </li>
+  <li>
+    <p><strong>Github Pages的限制</strong></p>
+
+    <p>Github Pages 并不是无限存储和无限流量的静态站点服务，一些限制如下：</p>
+
+    <ul>
+      <li>内容存储不能超过1GB。</li>
+      <li>每个月100GB流量带宽。</li>
+      <li>每小时编译构建次数不超过10次。（在线修改重新编译并未发现这个限制）</li>
+      <li>更多参看官方说明：<a href="https://help.github.com/en/github/working-with-github-pages/about-github-pages#usage-limits">usage-limits</a>。</li>
+    </ul>
+  </li>
+  <li>
+    <p>补充一个视频，做测试</p>
+  </li>
+</ul>
+
+<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/R0C_uHXiH10" frameborder="0"></iframe>
+
+<h3 id="附参考材料">附：参考材料</h3>
+
+<ul>
+  <li><a href="https://blog.csdn.net/p10010/article/details/51336332">1 GitHub的注册与使用（详细图解）</a></li>
+  <li><a href="https://blog.walterlv.com/post/setup-jekyll-in-windows.html">2 快速在 Windows 上搭建 Jekyll 开发环境</a></li>
+  <li>
+    <p><a href="https://www.runoob.com/w3cnote/git-gui-window.html">3 Git可视化极简易教程 — Git GUI使用方法</a></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>    </div>
+  </li>
+</ul>
+:ET
