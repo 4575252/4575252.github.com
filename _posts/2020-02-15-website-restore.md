@@ -1,9 +1,11 @@
 ---
 layout: post
 title: MathJax Test
+#subtitle: '或许是最漂亮的Jekyll主题'
 date: 2020-02-15
 categories: test
 tags: mathjax 
+cover: '/assets/pic/bg/post-bg-universe.jpg'
 ---
 
 mathjax in markdown :)
