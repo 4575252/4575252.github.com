@@ -1,0 +1,60 @@
+I"	<blockquote>
+  <p>123</p>
+</blockquote>
+
+<blockquote>
+  <p>新冠病毒肆虐期间，在家闲的那个蛋疼，也不知道未来和意外那个先来，想想还有好多梦想没有去追索，先从这里开始，<strong>一起努力吧</strong>！</p>
+</blockquote>
+
+<h2 id="一目标">一、目标</h2>
+
+<ol>
+  <li>建设个人博客一套，为下一步梦想推进，暂定GitHub+Jekyll的方式；</li>
+  <li>将各领域的知识汇总、提炼，发布到博客上；</li>
+  <li>补充汇总知识盲区；</li>
+</ol>
+
+<h2 id="二安装过程">二、安装过程</h2>
+
+<h3 id="1准备工具">1、准备工具</h3>
+
+<ul>
+  <li>源码管理工具：Git Bash, Git Gui</li>
+  <li>源码仓库&amp;空间商&amp;顶级域名：GitHub 注册、开启[owner].github.io仓库并配置个人域名</li>
+  <li>本地开发及远端运行环境：Ruby、Bundle及国内加速源，windows，支撑jekyll</li>
+  <li>博客中间件：Jekyll、Jekyll Page、H2O主题，动态渲染</li>
+  <li>博文编写：Typora，markdown</li>
+</ul>
+
+<h3 id="2首次搭建过程一次性">2、首次搭建过程（一次性）</h3>
+
+<h4 id="21-服务端github注册开启所有者仓库配置个人域名">2.1 服务端：GitHub注册、开启【所有者】仓库、配置个人域名</h4>
+
+<h4 id="22-本地端git下载安装及配置github联调">2.2 本地端：Git下载安装及配置、GitHub联调</h4>
+
+<h4 id="23-本地端windows环境ruby安装国内加速源">2.3 本地端：Windows环境Ruby安装、国内加速源</h4>
+
+<h4 id="24-本地端jekyll安装调试主题下载及个人定制">2.4 本地端：Jekyll安装调试，主题下载及个人定制</h4>
+
+<h4 id="25-本地端jekyll点评及其他插件">2.5 本地端：Jekyll点评及其他插件</h4>
+
+<h4 id="26-本地端typora编写及git发布同步">2.6 本地端：Typora编写及Git发布、同步</h4>
+
+<h3 id="3新电脑搭建更换电脑多地办公之用">3、新电脑搭建（更换电脑、多地办公之用）</h3>
+
+<p>执行第2.2 - 2.4即可；</p>
+
+<h2 id="三补充">三、补充</h2>
+
+<p>评论系统</p>
+
+<p>博客点击数</p>
+
+<p>来源分析</p>
+
+<h1 id="附参考材料">附：参考材料</h1>
+
+<ul>
+  <li><a href="https://blog.walterlv.com/post/setup-jekyll-in-windows.html">快速在 Windows 上搭建 Jekyll 开发环境</a></li>
+</ul>
+:ET
