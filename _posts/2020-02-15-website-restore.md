@@ -94,10 +94,12 @@ cover: '/assets/pic/bg/post-bg-universe.jpg'
   git remote add origin git@github.com:owner/owner.github.io.git
   # 推送到远程仓库
   git push -u origin master
+  # 如果有ERROR: Repository not found.fatal
+git remote set-url origin git@github.com:xxxxxx/xxxxxx.git
   ```
 
   提交成功后，用git gui进行，remote-》fetch， Meger-》local的下拉合并操作，验证上下行都OK；如果同步有冲突，勾选 force
-
+  
   
 
 #### 	2.3 本地端：Windows环境Ruby安装、国内加速源
@@ -225,7 +227,6 @@ config文件开启comments，注册个人disqus账号，新建站点即可
 
 <iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/R0C_uHXiH10" frameborder="0"></iframe>
 
-  
 
 ### 附：参考材料
 
